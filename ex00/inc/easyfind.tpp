@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/03 07:47:09 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/07 15:12:41 by rlobun           ###   ########.fr       */
+/*   Created: 2026/09/07 14:11:14 by rlobun            #+#    #+#             */
+/*   Updated: 2026/09/07 15:24:16 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "container_tests.hpp"
+#include "EasyfindNotFoundException.hpp"
+#include <iostream>
 
-int main()
+template <typename U>
+
+// c - container
+// v - value to find
+typename U::iterator easyfind(U& c, int v)
 {
-    testVector();
+	if (c.size() < 1)
+		throw std::invalid_argument("Error: No arguments");
+	
+	typename U::iterator it;
 
-    std::cout << std::endl;
+	it = std::find(c.begin(), c.end(), v);
 
-    testList();
+	if (it == c.end())
+		throw EasyfindNotFoundException();
 
-    std::cout << std::endl;
-
-    testDeque();
-
-    return 0;
+	return it;
 }
+
+

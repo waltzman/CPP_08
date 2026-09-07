@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/03 07:47:09 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/07 15:12:41 by rlobun           ###   ########.fr       */
+/*   Created: 2026/09/03 07:50:33 by rlobun            #+#    #+#             */
+/*   Updated: 2026/09/07 15:19:31 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "container_tests.hpp"
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
+# include <algorithm>
+# include <exception>
 
-int main()
-{
-    testVector();
+template <typename U>
+typename U::iterator easyfind(U& container, int valueToFind);
 
-    std::cout << std::endl;
-
-    testList();
-
-    std::cout << std::endl;
-
-    testDeque();
-
-    return 0;
-}
+#include "easyfind.tpp"
+#endif

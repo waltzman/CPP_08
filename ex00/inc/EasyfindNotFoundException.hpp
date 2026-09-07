@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   EasyfindNotFoundException.hpp                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/03 07:47:09 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/07 15:12:41 by rlobun           ###   ########.fr       */
+/*   Created: 2026/09/07 14:19:14 by rlobun            #+#    #+#             */
+/*   Updated: 2026/09/07 15:25:40 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "container_tests.hpp"
+#ifndef EASYFIND_NOT_FOUND_EXCEPTION_HPP
+# define EASYFIND_NOT_FOUND_EXCEPTION_HPP
+# include <exception>
 
-int main()
+#define RED_BG "\033[41m"
+#define WHITE_TXT "\033[37m"
+#define RESET "\033[0m"
+
+class EasyfindNotFoundException: public std::exception
 {
-    testVector();
+	virtual const char* what() const throw();
+};
 
-    std::cout << std::endl;
-
-    testList();
-
-    std::cout << std::endl;
-
-    testDeque();
-
-    return 0;
-}
+#endif

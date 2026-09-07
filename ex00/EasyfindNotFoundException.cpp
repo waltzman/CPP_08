@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   EasyfindNotFoundException.cpp                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/03 07:47:09 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/07 15:12:41 by rlobun           ###   ########.fr       */
+/*   Created: 2026/09/07 14:33:45 by rlobun            #+#    #+#             */
+/*   Updated: 2026/09/07 15:28:47 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "container_tests.hpp"
+#include "EasyfindNotFoundException.hpp"
 
-int main()
+const char* EasyfindNotFoundException::what() const throw()
 {
-    testVector();
-
-    std::cout << std::endl;
-
-    testList();
-
-    std::cout << std::endl;
-
-    testDeque();
-
-    return 0;
+	return RED_BG WHITE_TXT "EXCEPTION:" RESET " [EASYFIND]: Value not found";
 }

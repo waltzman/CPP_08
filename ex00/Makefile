@@ -2,8 +2,10 @@ CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 INC_DIR = ./inc
 INC_FLAGS = -I$(INC_DIR)
-TARGET = easyfinds
+TARGET = easyfind
 SRCS = 	main.cpp\
+		container_tests.cpp\
+		EasyfindNotFoundException.cpp
 		
 OBJS = $(SRCS:.cpp=.o)
 
