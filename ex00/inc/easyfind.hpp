@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 07:50:33 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/07 15:19:31 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/08 13:08:10 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 
 template <typename U>
 typename U::iterator easyfind(U& container, int valueToFind);
+
+template <typename U>
+typename U::constIterator easyfind(const U& container, int valueToFind);
 
 #include "easyfind.tpp"
 #endif

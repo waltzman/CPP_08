@@ -88,3 +88,33 @@ void testDeque()
 	}
 }
 
+void testConstVector()
+{
+	std::cout << "\n ===== C O N S T   V E C T O R =====" << std::endl;
+
+	std::vector<int> vecTemp;
+
+	vecTemp.push_back(45);
+	vecTemp.push_back(456);
+	vecTemp.push_back(5464);
+	vecTemp.push_back(0);
+
+	const std::vector<int> vec = vecTemp;
+
+	try
+	{
+		std::vector<int>::const_iterator it = easyfind(vec, 45);
+		std::
+		std::cout << "Found: " << *it << std::endl;
+
+		it = easyfind(vec, 99);
+		std::cout << "Found: " << *it << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+}
+
+
+

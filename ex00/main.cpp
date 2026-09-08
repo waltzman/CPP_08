@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/03 07:47:09 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/07 15:12:41 by rlobun           ###   ########.fr       */
+/*   Created: 2026/09/08 13:02:11 by rlobun            #+#    #+#             */
+/*   Updated: 2026/09/08 13:51:29 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int main()
 {
-    testVector();
+	testVector();
+	std::cout << std::endl;
 
-    std::cout << std::endl;
+	testList();
+	std::cout << std::endl;
 
-    testList();
+	testDeque();
+	std::cout << std::endl;
 
-    std::cout << std::endl;
+	testConstVector();
+	std::cout << std::endl;
 
-    testDeque();
-
-    return 0;
+	return 0;
 }
