@@ -103,8 +103,8 @@ void testConstVector()
 
 	try
 	{
-		std::vector<int>::const_iterator it = easyfind(vec, 45);
-		std::
+		std::vector<int>::const_iterator it;
+		it  = easyfind(vec, 45);
 		std::cout << "Found: " << *it << std::endl;
 
 		it = easyfind(vec, 99);
