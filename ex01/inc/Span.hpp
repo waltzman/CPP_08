@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:22:31 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/09 15:17:31 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/10 14:04:52 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include <exception>
 #include <vector>
 #include <algorithm>
+#include <iostream>
+
+# define RED "\033[31m"
+# define RT "\033[0m"
 
 class NotFoundException: public std::exception
 {
@@ -39,14 +43,16 @@ class Span
 		Span& operator=(const Span& origin);
 
 		// add a range of numbers to the Span
-		template<typename T>
-		void addFromContainer(T begin, T end);
 		void addNumber(int num);
-		int ShortestSpan();
-		int longestSpan();
-		void fillFromRange(int begin, int end);
-		void fill(int value, int quantity);
+		template <typename T>
+		void addNumber(T begin, T end);
+		unsigned int ShortestSpan() const;
+		unsigned int longestSpan();
+		void fillWithRange(int begin, int end);
+		void fillWith(int value, int quantity);
 		
 }; 
+
+#include "Span.tpp"
 
 #endif
