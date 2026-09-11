@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 14:21:54 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/10 17:44:38 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/11 12:34:37 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ std::ostream &operator<<(std::ostream &out, const Span &span)
 	const std::vector<int> &numbers = span.getNumbers();
 	if (numbers.size() == 0)
 		return (out << YELLOW "Span is empty!!! " RT);
-
+	out << "[";
 	for (std::vector<int>::const_iterator it = numbers.begin();
 		 it != numbers.end(); ++it)
 	{
@@ -75,14 +75,14 @@ std::ostream &operator<<(std::ostream &out, const Span &span)
 			out << " ";
 	}
 
-	out << " --> Size:" << numbers.size();
+	out << "] --> Size:" << numbers.size();
 
 	return (out << RT);
 }
 
 Span::~Span() {};
 
-const std::vector<int> Span::getNumbers() const
+const std::vector<int>& Span::getNumbers() const
 {
 	return vect;
 }
@@ -139,13 +139,11 @@ unsigned int Span::shortestSpan() const
 
 	std::sort(sorted.begin(), sorted.end());
 
-	unsigned int shortest = static_cast<int>(sorted[1] - sorted[0]);
+	int shortest = static_cast<int>(sorted[1] - sorted[0]);
 
-	unsigned int v_size = static_cast<int>(vect.size());
-
-	for (unsigned int i = 1; i < v_size; ++i)
+	for (size_t i = 2; i < vect.size(); ++i)
 	{
-		unsigned int dist = (sorted[i] -sorted[i - 1]);
+		int dist =static_cast<int>(sorted[i] -sorted[i - 1]);
 		if (dist < shortest)
 			shortest = dist;
 	}
@@ -154,8 +152,10 @@ unsigned int Span::shortestSpan() const
 
 unsigned int Span::longestSpan() const
 {
-	int min = *std::min_element(vect.begin(), vect.end());
-	int max = *std::max_element(vect.begin(), vect.end());
+	if (vect.size() < 2)
+		throw std::logic_error(RED "[EXCEPTION]: " RT "Not enough numbers in vector");
+	long min = *std::min_element(vect.begin(), vect.end());
+	long max = *std::max_element(vect.begin(), vect.end());
 	
 	return static_cast<unsigned int>(max - min);
 }

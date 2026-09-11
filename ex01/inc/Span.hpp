@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:22:31 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/10 17:42:09 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/11 12:34:15 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Span
 
 		Span& operator=(const Span& origin);
 
-		const std::vector<int> getNumbers() const;
+		const std::vector<int>& getNumbers() const;
 		void addNumber(int num);
 		template <typename T>
 		void addNumber(T begin, T end);

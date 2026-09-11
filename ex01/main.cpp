@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:42:51 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/10 17:36:31 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/11 12:41:54 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int main()
 
 		sp.fillWithRange(5, 1);
 
-		std::cout << "Added range: 5 -> 1" << std::endl;
+		std::cout << "Added descending range: 5 -> 1" << std::endl;
 		std::cout << "Vector: " << sp << std::endl;
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest span:  " << sp.longestSpan() << std::endl;
@@ -294,6 +294,75 @@ int main()
 
 		std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 		std::cout << "Longest span:  " << sp.longestSpan() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+
+	// ------------------------------------------------------------
+	// Large integer values
+	// ------------------------------------------------------------
+	printTest("Large integer values");
+
+	try
+	{
+		Span sp(6);
+
+		sp.addNumber(2147483647);
+		sp.addNumber(-2147483648);
+		sp.addNumber(2147483646);
+		sp.addNumber(-2147483647);
+		sp.addNumber(0);
+		sp.addNumber(100);
+
+		std::cout << "Numbers added:" << std::endl;
+		std::cout << "  INT_MAX     = 2147483647" << std::endl;
+		std::cout << "  INT_MIN     = -2147483648" << std::endl;
+		std::cout << "  2147483646" << std::endl;
+		std::cout << "  -2147483647" << std::endl;
+		std::cout << "  0" << std::endl;
+		std::cout << "  100" << std::endl;
+
+		std::cout << "Shortest span: "
+				  << sp.shortestSpan() << std::endl;
+
+		std::cout << "Longest span:  "
+				  << sp.longestSpan() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+
+	// ------------------------------------------------------------
+	// Large number of elements
+	// ------------------------------------------------------------
+	printTest("Large number of elements");
+
+	try
+	{
+		const unsigned int size = 10000000;
+		Span sp(size);
+
+		std::vector<int> numbers;
+
+		for (unsigned int i = 0; i < size; ++i)
+			numbers.push_back(static_cast<int>(i));
+
+		std::cout << "Adding " << numbers.size()
+				  << " numbers..." << std::endl;
+
+		sp.addNumber(numbers.begin(), numbers.end());
+
+		std::cout << "Successfully added "
+				  << size << " numbers." << std::endl;
+
+		std::cout << "Shortest span: "
+				  << sp.shortestSpan() << std::endl;
+
+		std::cout << "Longest span:  "
+				  << sp.longestSpan() << std::endl;
 	}
 	catch (const std::exception &e)
 	{
