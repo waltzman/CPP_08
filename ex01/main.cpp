@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 16:42:51 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/11 12:41:54 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/11 15:13:38 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -342,7 +342,7 @@ int main()
 
 	try
 	{
-		const unsigned int size = 10000000;
+		const unsigned int size = 100000000;
 		Span sp(size);
 
 		std::vector<int> numbers;
@@ -369,5 +369,33 @@ int main()
 		std::cout << "Error: " << e.what() << std::endl;
 	}
 
+	// ------------------------------------------------------------
+	// Span construction exception
+	// ------------------------------------------------------------
+	printTest("Span construction exception");
+
+	try
+	{
+		long tooLargeSpan = UINT_MAX;
+
+	 	std::vector<int> v;
+
+		std::cout << "CAPACITY: " << v.max_size() << " |\n" << std::endl;
+
+		std::cout << "MAX SIZE: " << v.max_size() << " |\n" << std::endl;
+
+		std::cout << "Constructing a span with  " << tooLargeSpan
+				  << " numbers of elements..." << std::endl;
+		
+		Span sp(tooLargeSpan);
+
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+
 	return 0;
 }
+
+

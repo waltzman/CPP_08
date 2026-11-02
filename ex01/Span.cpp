@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 14:21:54 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/11 12:34:37 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/11 15:11:23 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 Span::Span() : n(0) {};
 Span::Span(unsigned int number): n(number), vect(0)
 {
-	if (n > UINT_MAX)
+	if (n >  INT_MAX)
 	{
-		n = UINT_MAX;
-		std::cerr << RED << "[ERROR]: " RT "Number is above UINT_MAX () \n"
-				  << "changed to UINT_MAX\n "
+		n = INT_MAX;
+		std::cerr << RED << "[ERROR]: " RT "Number is above INT_MAX () \n"
+				  << "changed to INT_MAX\n "
 				  << n << RT << std::endl;
 	}
 	
@@ -149,6 +149,7 @@ unsigned int Span::shortestSpan() const
 	}
 	return (shortest);
 }
+
 
 unsigned int Span::longestSpan() const
 {

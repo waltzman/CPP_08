@@ -6,7 +6,7 @@
 /*   By: rlobun <rlobun@student.42madrid.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 13:56:18 by rlobun            #+#    #+#             */
-/*   Updated: 2026/09/11 12:17:38 by rlobun           ###   ########.fr       */
+/*   Updated: 2026/09/11 14:55:51 by rlobun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,13 @@ template<typename T>
 void Span::addNumber(T begin, T end)
 {
 	size_t distance = std::distance(begin, end);
+/*
 
-	if (vect.size() + distance >= n )
+	std::cout << "\nDEBUGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG" << std::endl;
+	std::cout << "vect.size() -> " << vect.size() << std::endl;
+	std::cout << "distance	  -> " << distance << "\n" << std::endl;
+*/
+	if (vect.size() + distance > n )
 		throw std::out_of_range(RED "[EXCEPTION]: " RT "Not enough space in Span");
 	vect.insert(vect.end(), begin, end);
 }

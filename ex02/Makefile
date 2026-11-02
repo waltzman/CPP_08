@@ -2,7 +2,7 @@ CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++98
 INC_DIR = ./inc
 INC_FLAGS = -I$(INC_DIR)
-TARGET = function_templates
+TARGET = mutant
 SRCS = 	main.cpp\
 		
 OBJS = $(SRCS:.cpp=.o)
